@@ -1,0 +1,78 @@
+<div class="container">
+  <img ng-src="../images/title.png" " style="max-width: 100%; height: auto;">
+<!--<li ng-style="{'background-image':'url(../images/putup.png)','background-repeat': 'no-repeat','background-size': '100% 100%' }" -->
+<!--<div class="row">
+  <div class="col-sm-12"> -->
+    <table class="table table-hover" ng-style="{'background-color':'#cfbfe2','background-size': '100% 100%'}" >
+      <thead >
+        <tr ng-style="{'background-color':'#bd93d2'}">
+          <th>No.</th>
+          <th>State</th>
+          <th>Message</th>
+          <th>Alias</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="obj in userList">
+          <td>
+            <span ng-click="goUserDetail(obj.id)">{{ obj.id }}
+            </span>
+          </td>
+          <td>
+            <div ng-switch on="{{obj.image_no}}">
+              <div ng-switch-when="1">
+                <img src="../images/angry.png" class="img-responsive" alt="Cinque Terre" width="40"  height="10">
+              </div>
+              <div ng-switch-when="2">
+                <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
+              </div>
+              <div ng-switch-when="3">
+                <img src="../images/rough.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
+              </div>
+              <div ng-switch-when="4">
+                <img src="../images/sad.png" class="img-responsive" alt="Cinque Terre"  width="40" height="25">
+              </div>
+              <div ng-switch-when="5">
+                <img src="../images/timid.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
+              </div>              
+              <div ng-switch-default>
+                <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre"  width="40"  height="30">
+              </div>
+          </div>
+         </td>
+         <td>
+           <span style="font-weight:bold;display: table-row-group;" ng-click="goUserDetail(obj.id)">{{ obj.message }}
+           </span>
+         </td>
+         <td>
+           <span style="font-weight:bold;font-size:15px;display:table-row-group;" ng-click="goUserDetail(obj.id)" >{{ obj.alias }}
+           </span>
+         </td>         
+        </tr>
+      </tbody>
+    </table>
+  <!--  <a class="btn btn-default pull-right">글쓰기</a>-->
+  <!--</div>
+</div>-->
+</div>
+    <!-- Modal -->
+<!--    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">-->
+        <!-- Modal content-->
+<!--        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">User Info</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table"><tr><td>ID</td><td>{{userInfo.id}}</td></tr><tr><td>상태</td><td>{{userInfo.image_no}}</td></tr><tr><td>별칭</td><td>{{userInfo.alias}}</td></tr>
+              <tr><td>내용</td><td>{{userInfo.message}}</td></tr></table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
