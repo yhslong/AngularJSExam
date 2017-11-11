@@ -59,6 +59,29 @@ body {
   margin-top: 28px;
 }
 
+  .item {
+  background: blue;
+  margin: 1px;
+  flex: 1 1 calc(20% - 8px);
+  }
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #90CAF9;
+    color: white;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  background-color: #BBDEFB;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #90CAF9;
+    color: white;
+}  
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -79,5 +102,11 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+
+  .item {
+  background: blue;
+  margin: 4px;
+  flex: 1 1 calc(20% - 8px);
   }
 }

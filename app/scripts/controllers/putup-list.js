@@ -20,10 +20,11 @@ angular.module('angularJsexamApp')
     $scope.$on('$viewContentLoaded', function() {
     	$scope.requestUserList();
     });
+
     $scope.userList = [];
     $scope.requestUserList = function() {
     	var dataPromise = Data.getData(
-    		'http://192.168.0.18:52273/post');
+    		'http://172.16.2.17:52273/post');
     	dataPromise.then(function(results) {
     		$scope.userList = results.data;
     	},function(reason){},function(update){});
@@ -31,15 +32,15 @@ angular.module('angularJsexamApp')
 
     $scope.deleteUserInfo = function(id) {
     	var dataPromise = Data.deleteData(
-    		'http://192.168.0.18:52273/post/'+id, '');
+    		'http://172.16.2.17:52273/post/'+id, '');
     	dataPromise.then(function(results) {
     		$scope.requestUserList();
     	},function(reason){},function(update){});
     }
 
-    $scope.modifyUserInfo = function(id,name,age) {
+    $scope.modifyUserInfo = function(id,message) {
     	var dataPromise = Data.modifyData(
-    		'http://192.168.0.18:52273/post/'+id, 
+    		'http://172.16.2.17:52273/post/'+id, 
     		'&message='+message);
     	dataPromise.then(function(results) {
     		$scope.requestUserList();
@@ -49,9 +50,9 @@ angular.module('angularJsexamApp')
     $scope.userInfo = {};
     $scope.getUserInfo = function(id) {
     	var dataPromise = Data.getData(
-    		'http://192.168.0.18:52273/post/'+id);
+    		'http://172.16.2.17:52273/post/'+id);
     	dataPromise.then(function(results) {
-    		$scope.userInfo = results.data;
+    		$scope.userInfo = results.data[0];
     	},function(r){},function(u){});
     }
 

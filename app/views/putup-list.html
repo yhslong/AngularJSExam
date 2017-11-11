@@ -10,30 +10,32 @@
           <th>State</th>
           <th>Message</th>
           <th>Alias</th>
+          <th>cnt</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="obj in userList">
           <td>
-            <span ng-click="goUserDetail(obj.id)">{{ obj.id }}
+            <a href="detail:{{obj.alias}}&{{obj.image_no}}&{{obj.message}}">
+            <span data-toggle="modal" data-target="#myModal" ng-click="getUserInfo(obj.id)">{{ obj.id }}
             </span>
           </td>
           <td>
-            <div ng-switch on="{{obj.image_no}}">
+            <div class="item" ng-switch on="{{obj.image_no}}">
               <div ng-switch-when="1">
-                <img src="../images/angry.png" class="img-responsive" alt="Cinque Terre" width="40"  height="10">
+                <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
               </div>
               <div ng-switch-when="2">
-                <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
+                <img src="../images/angry.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
               </div>
               <div ng-switch-when="3">
                 <img src="../images/rough.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
               </div>
               <div ng-switch-when="4">
-                <img src="../images/sad.png" class="img-responsive" alt="Cinque Terre"  width="40" height="25">
+                <img src="../images/timid.png" class="img-responsive" alt="Cinque Terre"  width="40" height="25">
               </div>
               <div ng-switch-when="5">
-                <img src="../images/timid.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
+                <img src="../images/sad.png" class="img-responsive" alt="Cinque Terre"  width="40" height="30">
               </div>              
               <div ng-switch-default>
                 <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre"  width="40"  height="30">
@@ -47,10 +49,67 @@
          <td>
            <span style="font-weight:bold;font-size:15px;display:table-row-group;" ng-click="goUserDetail(obj.id)" >{{ obj.alias }}
            </span>
-         </td>         
+         </td>  
+         <td>
+           <span style="font-weight:bold;font-size:15px;display:table-row-group;" ng-click="goUserDetail(obj.id)" >{{ obj.cnt }}
+           </span>
+         </td>           
         </tr>
       </tbody>
     </table>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">User Info</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+            <thead>
+            <tr align="center">
+              <th width="10%">
+                
+                  <div ng-switch on="userInfo.image_no">
+                    <div ng-switch-when="1">
+                      <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre">
+                    </div>
+                    <div ng-switch-when="2">
+                      <img src="../images/angry.png" class="img-responsive" alt="Cinque Terre">
+                    </div>
+                    <div ng-switch-when="3">
+                      <img src="../images/rough.png" class="img-responsive" alt="Cinque Terre">
+                    </div>
+                    <div ng-switch-when="4">
+                      <img src="../images/timid.png" class="img-responsive" alt="Cinque Terre">
+                    </div>
+                    <div ng-switch-when="5">
+                      <img src="../images/sad.png" class="img-responsive" alt="Cinque Terre">
+                    </div>              
+                    <div ng-switch-default>
+                      <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre">
+                    </div>
+                  </div>
+              </th>
+              <th width="60%">
+                <div ng-model="userInfo.message" contenteditable="true"> {{userInfo.message}}</div>
+                
+              </th>
+            </tr>
+          </thead>              
+               <tr><td>ID</td><td>{{userInfo.id}}</td></tr><tr><td>Alias</td><td>{{userInfo.alias}}</td></tr><tr></tr></table>
+          </div>
+          <div class="modal-footer">
+          <!--  <button type="button" class="btn btn-warning" ng-click="modifyUserInfo(userInfo.id,userInfo.message)">Edit</button>-->
+            <button type="button" class="btn btn-danger" ng-click="deleteUserInfo(userInfo.id)">Delete</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>    
   <!--  <a class="btn btn-default pull-right">글쓰기</a>-->
   <!--</div>
 </div>-->

@@ -1,6 +1,6 @@
  <div class="container">
   <hr/>
-    <div class="row">
+    <div class="row" ng-style="{'background-color':'#cfbfe2','background-size': '100% 100%'}">
       <div class="col-md-10">
         <table class="table table-condensed">
           <thead>
@@ -9,19 +9,19 @@
                 
                   <div ng-switch on="userInfo.image_no">
                     <div ng-switch-when="1">
-                      <img src="../images/angry.png" class="img-responsive" alt="Cinque Terre">
+                      <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre">
                     </div>
                     <div ng-switch-when="2">
-                      <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre">
+                      <img src="../images/angry.png" class="img-responsive" alt="Cinque Terre">
                     </div>
                     <div ng-switch-when="3">
                       <img src="../images/rough.png" class="img-responsive" alt="Cinque Terre">
                     </div>
                     <div ng-switch-when="4">
-                      <img src="../images/sad.png" class="img-responsive" alt="Cinque Terre">
+                      <img src="../images/timid.png" class="img-responsive" alt="Cinque Terre">
                     </div>
                     <div ng-switch-when="5">
-                      <img src="../images/timid.png" class="img-responsive" alt="Cinque Terre">
+                      <img src="../images/sad.png" class="img-responsive" alt="Cinque Terre">
                     </div>              
                     <div ng-switch-default>
                       <img src="../images/happy.png" class="img-responsive" alt="Cinque Terre">
@@ -40,7 +40,7 @@
             <tr>
               <td>글쓴이</td>
               <td>{{userInfo.alias}}
-                 <span style='float:right'>조회 : 0</span>
+                 <span style='float:right'>댓글건수 : {{userInfo.cnt}}</span>
               </td>
             </tr>
             <tr>
@@ -60,13 +60,19 @@
                 <span style="color:blue;font-weight:bold" ng-init="commend = obj" ng-model="commend">{{ obj.message }}
                 </span>
               </td>
+              <td width="20%">
+              <span style='float:right'>                 
+                  <button  type="button" class="btn btn-danger" ng-click="deleteUserInfo(obj.id)">Del</button>                
+                </span>
+              </td>
             </tr>
           </tbody>              
         </table>
           <table class="table table-condensed">
             <tr>
               <td>
-               <span class="form-inline" role="form">
+               <span cla
+ss="form-inline" role="form">
                     <textarea id="commentParentText" class="form-control col-lg-12" style="width:100%" ng-model="message" id="user_commend" rows="4"></textarea>
                 </span>
               </td>
@@ -76,10 +82,9 @@
           <thead>
             <tr>
               <td>
-                <span style='float:right'>
-                  <button type="button"  class="btn btn-primary" 
-                       ng-click="getUserInfo({{user_real_id}})">목록</button>
-                  <button  type="button" class="btn btn-primary" ng-click="saveUserInfo()">글쓰기</button>
+                <span style='float:right'>                 
+                  <button  type="button" class="btn btn-primary" ng-click="saveUserInfo()">글쓰기</button>                
+                  <button  type="button" class="btn btn-primary" ng-click="return()">되돌아가기</button>
                 </span>
               </td>
             </tr>

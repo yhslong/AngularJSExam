@@ -57,7 +57,7 @@ angular
         controller:'UserWithdrawCtrl'
       })
       .state('putup-list',{
-        url:'/user/list',
+        url:'/putup/list',
         templateUrl:'views/putup-list.html',
         controller:'PutupListCtrl'
 

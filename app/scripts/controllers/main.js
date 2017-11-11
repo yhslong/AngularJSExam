@@ -84,6 +84,7 @@ angular.module('angularJsexamApp')
     $scope.$on('$viewContentLoaded', function() {
       var os = $location.search().os;
       if (os != undefined) {
+        $state.go('putup-list');
         window.alert(os);
       } 
      // $scope.requestUserList();
